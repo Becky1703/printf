@@ -118,21 +118,21 @@ int get_modifier(char *s, params_t *params)
  *
  * Return: new pointer
  */
-char *get_width(char *s, params_t *params, va_list ap)
+char *get_width(char *p, params_t *params, va_list ap)
 /* should this function use char **s and modify the pointer? */
 {
 	int d = 0;
 
-	if (*s == '*')
+	if (*p == '*')
 	{
 		d = va_arg(ap, int);
-		s++;
+		p++;
 	}
 	else
 	{
-		while (_isdigit(*s))
-			d = d * 10 + (*s++ - '0');
+		while (_isdigit(*p))
+			d = d * 10 + (*p++ - '0');
 	}
 	params->width = d;
-	return (s);
+	return (p);
 }
